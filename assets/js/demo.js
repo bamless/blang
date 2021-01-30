@@ -121,4 +121,41 @@ print(formatted)`
         );
     });
 
+let classesButton = document.querySelector("#classes");
+classesButton.addEventListener('click', () => {
+    setEditorCode(
+`class Person
+    fun new(name, age)
+        this.name = name
+        this.age = age
+    end
+
+    fun getName()
+        return this.name
+    end
+
+    fun showIncome()
+        print("{0}'s income is unknown" % this.getName())
+    end
+end
+
+class Employee is Person
+    fun new(name, age, income)
+        super(name, age)
+        this.income = income
+    end
+
+    fun showIncome()
+        print("{0}'s income is {1}$" % (super.getName(), this.income))
+    end
+end
+
+var john = Person("John", 20)
+var alice = Employee("Alice", 34, 2000)
+
+john.showIncome()
+alice.showIncome()`        
+    );
+});
+
 });

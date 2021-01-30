@@ -16,6 +16,7 @@ Examples
 <button type="button" id="loop" class="btn btn-blue">Loop</button>
 <button type="button" id="quick-sort" class="btn btn-blue">Quick Sort</button>
 <button type="button" id="regex" class="btn btn-blue">Regex</button>
+<button type="button" id="classes" class="btn btn-blue">Classes</button>
 
 ---
 
