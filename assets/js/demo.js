@@ -69,7 +69,7 @@ helloWorldButton.addEventListener('click', () => {
 let loopButton = document.querySelector('#loop');
 loopButton.addEventListener('click', () => {
     setEditorCode(
-`for var i = 0; i < 10; i += 1 do
+`for var i = 0; i < 10; i += 1
 	print('Iteration {0}' % i)
 end`
     );
@@ -81,8 +81,8 @@ quickSortButton.addEventListener('click', () => {
 `fun partition(list, low, high)
 	var pivot = list[high]
 	var i = low
-	for var j = low; j < high; j += 1 do
-		if list[j] <= pivot then
+	for var j = low; j < high; j += 1
+		if list[j] <= pivot
 			list[i], list[j] = list[j], list[i]
 			i += 1
 		end
@@ -92,7 +92,7 @@ quickSortButton.addEventListener('click', () => {
 end
 
 fun quickSort(list, low, high)
-	if low < high then
+	if low < high
 		var p = partition(list, low, high)
 		quickSort(list, low, p - 1)
 		quickSort(list, p + 1, high)
