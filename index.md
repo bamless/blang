@@ -23,7 +23,7 @@ This also is a runnable snippet.
 Take a look:
 
 <pre class='runnable-snippet'>
-for var i = 0; i < 3; i += 1 do
+for var i = 0; i < 3; i += 1
 	print('Another snippet')
 end
 </pre>
