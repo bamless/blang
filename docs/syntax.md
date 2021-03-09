@@ -41,14 +41,14 @@ print("Statement 2")
 ```
 
 Doing something like this will instead result in a parsing error:
-<div class="runnable-snippet">
+<pre class="runnable-snippet">
 print("Statement 1") print("Statement 2")
-</div>
+</pre>
 
 If you want to put two or more statements on a single line, you can separate them using a semicolon:
-<div class="runnable-snippet">
+<pre class="runnable-snippet">
 print("Statement 1"); print("Statement 2")
-</div>
+</pre>
 
 Semicolons followed by a newline are also accepted, making code like this possible, even though not
 reccomended:
@@ -61,7 +61,7 @@ Even though most of the newines are significant, in some circumntances the parse
 In fact, every time a newline is encountered, if the last token cannot end a statement or an 
 expression, then the newline is skipped. For example:
 ```jstar
-    print(4 + // `+` cannot end the expression, the newline is ignored
+print(4 + // `+` cannot end the expression, the newline is ignored
         2)
 ```
 
@@ -76,8 +76,9 @@ print(4 \
 This is a list of all the keywords of the language:
 ```jstar
     true false null and or else for fun native if elif
-    var while in begin end as is try ensure except raise
-    with continue break static end return import class
+    var while in begin end as is try ensure except raise 
+    with continue break static end return import super
+    class
 ```
 These names are reserved, and cannot be used as names for variables, classes or functions.
 

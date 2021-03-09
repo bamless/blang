@@ -22,7 +22,7 @@ permalink: /getting-started
 An online version of the interpreter is provided [here](demo) if you want to hop straight in without
 dealing with the installation process. While this is a pretty convinient way to get a feel for the 
 language, installing it on your machine is still reccomended if you want to follow along with the 
-[language guide](docs/), as the online interpeter has some limitations.
+[language guide](docs), as the online interpeter has some limitations.
 
 ## Installation
 
