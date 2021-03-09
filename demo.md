@@ -1,10 +1,9 @@
 ---
 layout: default
 title: Demo
-nav_order: 2
+nav_order: 3
 description: "J* demo"
 permalink: /demo
-last_modified_date: 2020-04-27T17:54:08+0000
 ---
 
 <script src="{{ 'assets/js/linenumbers.js' | absolute_url }}"></script>
