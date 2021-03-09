@@ -70,7 +70,7 @@ print(Number("23.4"))
 
 ## Booleans
 
-A boolean has only two possible values, `true` and `false`, that represent truth and falsehood.  
+A boolean has only two possible values, `true` and `false`, representing truth and falsehood.  
 Their class is `Boolean` and, just like numbers, can be created by invoking its constructor:
 <pre class='runnable-snippet'>
 // If the given argument is a boolean, then that boolean is returned
