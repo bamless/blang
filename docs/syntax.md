@@ -95,7 +95,7 @@ not also one of the reserved keywords:
 
 **J\*** provides all the usual operators supported by other programming languages and some more
 exotic ones. We will discuss the semantics of all operators and the way they behave on different 
-types in the next sections, limitiing ourself to list them for now, from highest to lowest 
+types in the next sections, limiting ourself to list them for now, from highest to lowest 
 precedece:
 
 | Operator                         | Description                                    | Associativity  |
