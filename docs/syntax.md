@@ -45,8 +45,7 @@ Doing something like this will instead result in a parsing error:
 print("Statement 1") print("Statement 2")
 </div>
 
-If you **really** want to put two or more statements on a single line, you can separate them using 
-the `;` token:
+If you want to put two or more statements on a single line, you can separate them using a semicolon:
 <div class="runnable-snippet">
 print("Statement 1"); print("Statement 2")
 </div>
@@ -58,7 +57,7 @@ print("Statement 1");
 print("Statement 2");
 ```
 
-Even though most of the keywords are significant, in some circumntances the parser can ignore them.
+Even though most of the newines are significant, in some circumntances the parser can ignore them.
 In fact, every time a newline is encountered, if the last token cannot end a statement or an 
 expression, then the newline is skipped. For example:
 ```jstar
