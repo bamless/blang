@@ -30,8 +30,8 @@ automatic conversions between types are not performed. For example code like thi
 will fail with a type error, instead of converting the string into a number (or viceversa), like 
 some other scripting languages do.
 
-All values in **J\*** are first-class values. This means that they can be assigned to variables,
-passed as arguments and returned as results.
+All values in **J\*** are first-class. This means that they can be assigned to variables, passed 
+as arguments, returned as results and generally be operated on just like any other value.
 
 **J\*** is deeply class based, and as such the *type* of a value is represented by its *class*. In 
 fact, in **J\*** *class* and *type* are synonyms, as well as *value* and *instance*. Yes, even a 
