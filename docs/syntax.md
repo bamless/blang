@@ -4,7 +4,7 @@ title: Syntax
 nav_order: 1
 description: "J* syntax"
 parent: Documentation
-permalink: /docs/syntax
+permalink: docs/syntax
 ---
 
 # Syntax
@@ -96,7 +96,7 @@ not also one of the reserved keywords:
 
 **J\*** provides all the usual operators supported by other programming languages and some more
 exotic ones. We will discuss the semantics of all operators and the way they behave on different 
-types in the next sections, limiting ourself to list them for now, from highest to lowest 
+types in the next sections. For now we limit ourselves to list them, from highest to lowest 
 precedece:
 
 | Operator                         | Description                                    | Associativity  |

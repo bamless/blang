@@ -4,7 +4,7 @@ title: Values and Types
 nav_order: 2
 description: "Values and Types"
 parent: Documentation
-permalink: /docs/values-and-types
+permalink: docs/values-and-types
 ---
 
 # Values and Types
@@ -37,7 +37,7 @@ as arguments, returned as results and generally be operated on just like any oth
 fact, in **J\*** *class* and *type* are synonyms, as well as *value* and *instance*. Yes, even a 
 simple number is an instance, and its class is *Number*:
 <pre class='runnable-snippet'>
-print(type(5)) // The type built-in function returns the class of the given type
+print(type(5)) // The type built-in function returns the class of the given value
 </pre>
 
 The language has 12 built-in value types:
@@ -79,8 +79,8 @@ print(Boolean(false))
 // If the argument is any other value, then its truth value is returned
 print(Boolean(25))
 </pre>
-Every value in **J\*** has an intrisic truth value. We'll discuss more about this in the [control
-flow](control-flow) section.
+Every value in **J\*** has an intrisic truth value associated with it. We'll discuss more about this
+in the [control flow](control-flow) section.
 
 ## Strings
 Strings are immutable sequences of bytes. In **J\*** Strings are 8-bit clean, this means that they 
