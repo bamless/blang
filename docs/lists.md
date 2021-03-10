@@ -48,12 +48,11 @@ We will define what is an Iterable object in the [Control flow](control-flow) se
 The funny looking `|| =>` syntax is called a 'function literal'. We'll discuss more about it in the 
 [Functions](functions) section.
 
-## Element access
+## Accessing elements
 
 Elements in a list can be accessed using the subscript operator `[]`:
 <pre class='runnable-snippet'>
 var numbers = [1, 2, 3, 4, 5]
-
 print(numbers[0])
 print(numbers[1])
 </pre>
@@ -139,7 +138,7 @@ but for more general types this is not always the case. We'll discuss more about
 [Operators and overloads](operators-and-overloads) section.
 
 ## Other useful methods
-Below are listed a handful of useful methods that `List` implements:
+Below we list a handful of useful methods that `List` implements:
 ```jstar
 list.clear()                  // Removes all elements from the list
 list.addAll(iterable)         // Adds all the elements of the given iterable to the list

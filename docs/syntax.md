@@ -96,27 +96,24 @@ not also one of the reserved keywords:
 
 **J\*** provides all the usual operators supported by other programming languages and some more
 exotic ones. We will discuss the semantics of all operators and the way they behave on different 
-types in the next sections. For now we limit ourselves to list them, from highest to lowest 
-precedece:
+types in future sections. For now we limit ourselves to list them, from highest to lowest precedece:
 
-| Operator                         | Description                                    | Associativity  |
-|:---------------------------------|:-----------------------------------------------|:---------------|
-| `()`                             | Grouping                                       | Left           |
-| `x[]` `x()` `x.attr`             | Subscript, Call, Attribute access              | Left           |
-| `^`                              | Exponentiation                                 | Right          |
-| `-x` `!x` `~x` `#x` `##x`        | Negation, Not, Complement, Length, Stringify   | Right          |
-| `*` `/` `%`                      | Multiplication, Division, Remainder            | Left           |
-| `+` `-`                          | Addition, Subtraction                          | Left           |
-| `<<` `>>`                        | Left and right shift                           | Left           |
-| `&`                              | Bitwise and                                    | Left           |
-| `~`                              | Bitwise xor                                    | Left           |
-| `|`                              | Bitwise or                                     | Left           |
-| `<` `<=` `>` `>=` `==` `!=` `is` | Relational                                     | Left           |
-| `and`                            | Boolean and                                    | Left           |
-| `or`                             | Boolean or                                     | Left           |
-| `fun` `|| => expr`               | Functon literal, lambda                        | Right          |
-| `if-else`                        | Ternary                                        | Right          |
-| `,`                              | Comma operator (Tuple creation)                | Left           |
-| `=` `+=` `-=` `*=` `/=` `%=`     | Assigment                                      | Right          |
-
-
+| Operator                                   | Description                                    | Associativity  |
+|:-------------------------------------------|:-----------------------------------------------|:---------------|
+| `(expr)` `[expr, ...]` `{key: value, ...}` | Grouping, List literal, Table literal          | Left           |
+| `x[]` `x()` `x.attr`                       | Subscript, Call, Attribute access              | Left           |
+| `^`                                        | Exponentiation                                 | Right          |
+| `-x` `!x` `~x` `#x` `##x`                  | Negation, Not, Complement, Length, Stringify   | Right          |
+| `*` `/` `%`                                | Multiplication, Division, Remainder            | Left           |
+| `+` `-`                                    | Addition, Subtraction                          | Left           |
+| `<<` `>>`                                  | Left and right shift                           | Left           |
+| `&`                                        | Bitwise and                                    | Left           |
+| `~`                                        | Bitwise xor                                    | Left           |
+| `|`                                        | Bitwise or                                     | Left           |
+| `<` `<=` `>` `>=` `==` `!=` `is`           | Relational                                     | Left           |
+| `and`                                      | Boolean and                                    | Left           |
+| `or`                                       | Boolean or                                     | Left           |
+| `fun` `|| => expr`                         | Function literal, Lambda                       | Right          |
+| `if-else`                                  | Ternary                                        | Right          |
+| `,`                                        | Comma operator (Tuple literal)                 | Left           |
+| `=` `+=` `-=` `*=` `/=` `%=`               | Assigment                                      | Right          |
