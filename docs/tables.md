@@ -7,7 +7,7 @@ parent: Documentation
 permalink: docs/tables
 ---
 
-# Tuples
+# Tables
 {: .no_toc }
 
 ## Table of contents
