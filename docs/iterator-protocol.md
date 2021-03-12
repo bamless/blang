@@ -1,13 +1,13 @@
 ---
 layout: default
-title: Variables
-nav_order: 6
-description: "Variables"
+title: Iterator protocol
+nav_order: 8
+description: "Iterator protocol"
 parent: Documentation
-permalink: docs/variables
+permalink: docs/iterator-protocol
 ---
 
-# Variables
+# Iterator protocol
 {: .no_toc }
 
 ## Table of contents

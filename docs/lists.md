@@ -44,9 +44,10 @@ print(List(5, 0))
 print(List(5, |i| => i))
 </pre>
 
-We will define what is an Iterable object in the [Control flow](control-flow) section.  
+We will define what is an Iterable object in the [iterable protocol](iterable-protocol) section.
+ 
 The funny looking `|| =>` syntax is called a 'function literal'. We'll discuss more about it in the 
-[Functions](functions) section.
+[functions and methods](functions-and-methods) section.
 
 ## Accessing elements
 
@@ -57,8 +58,8 @@ print(numbers[0])
 print(numbers[1])
 </pre>
 
-In **J\*** all sequences index starting from `0`, and using an integer past the end or before the
-beginning result in a runtime error:
+In **J\*** all sequences index starting from `0`. Using an integer past the end or before the
+beginning of the sequence will result in a runtime error:
 <pre class='runnable-snippet'>
 var list = ["foo", "bar"]
 print(list[2]) // The list has only 2 elements, this will fail

@@ -19,7 +19,8 @@ permalink: docs/tables
 ---
 
 Tables implement an hash-table data structure. In other languages they are also called maps, 
-dictionaries or associative arrays. They contain a set of keys that map to a value.  
+dictionaries or associative arrays. They contain a set of keys that map to a value.
+
 Tables can be created by using a *table literal*:
 <pre class='runnable-snippet'>
 var table = {'one' : 1, 'two' : 2, 'three' : 3, 'four' : 4}
@@ -50,7 +51,7 @@ print(table['one'])
 </pre>
 
 The argument of the operator is not limited on being an integer, but can be any J* value (with some
-exceptions - see [Adding elements](tables#adding-elements)). The table will then hash the argument,
+exceptions - see [adding elements](tables#adding-elements)). The table will then hash the argument,
 search for it among its keys, and return its associated value. If the key cannot be found, then the
 subscript will return `null`. This can be problematic if `null` is also a valid value that is
 associated to some key. To disambiguate this case, the `contains` method can be used. It will return
@@ -72,7 +73,7 @@ print(table)
 
 Valid keys for a table are comprised of all **J\*** values, as long as they implement the `__hash__` 
 and `__eq__` methods, and they aren't `null`. `__hash__` and `__eq__` will be discussed in the 
-[Operators and overloads](operators-and-overloads) section.
+[operators and overloads](operators-and-overloads) section.
 <pre class='runnable-snippet'>
 var table = {}
 
@@ -101,7 +102,7 @@ otherwise.
 
 ## Iterating on tables
 
-We will delve into iteration in more detail in the [Control flow](docs/control-flow) section, but,
+We will delve into iteration in more detail in the [control flow](docs/control-flow) section, but,
 being iteration a pretty tricky subject for tables, we will take a little detour here.
 
 Why is it tricky you ask?  
@@ -113,7 +114,7 @@ for var e in table
 end
 ```
 
-What should e be? In other words, on what should we iterate on?  
+What should 'e' be? In other words, on what should we iterate on?  
 One answer could be keys, but another valid one could be values or even 2-tuples containing both
 the key and the value.
 
@@ -157,11 +158,11 @@ print("Is `foo` a keyword?", Boolean(keywords["foo"]))
 </pre>
 
 We simply assign true to the elements that are supposed to be contained in the set.  
-As we briefly mentioned in the [Boolean section](values-and-types#booleans), all values in J* have
-an instric truth value. It just happens that the truth value of `null` is `false`, so when we try
-to look for an entry that isn't present in the set and we get `null` back, we can use it like a
-`false` boolean. This spares us the need to explicitely assign `false` to all elements that are
-not part of the set, because the subscript will return `null` if it doesn't find an entry.
+As we briefly mentioned in the discussion of [Booleans](values-and-types#booleans), all values in 
+**J\*** have an instric truth value. It just happens that the truth value of `null` is `false`, so 
+when we try to look for an entry that isn't present in the set and we get `null` back, we can use it
+like a `false` boolean. This spares us the need to explicitely assign `false` to all elements that
+are not part of the set, because the subscript will return `null` if it doesn't find an entry.
 
 # Other useful methods
 ```jstar

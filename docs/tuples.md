@@ -72,7 +72,7 @@ print(tuple)
 
 ## Element access
 
-Just like in lists, tuple elements can be accessed by the subscript operator:
+Just like lists, tuple elements can be accessed by the subscript operator:
 <pre class='runnable-snippet'>
 var tuple = 1, "foo", false, "bar"
 print(tuple[0])

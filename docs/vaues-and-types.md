@@ -19,14 +19,14 @@ permalink: docs/values-and-types
 ---
 
 **J\*** is a *dynamically* typed programming language. This means that variables do not have types,
-instead values carry their own type with them. Keep in mind that **J\*** is *dynamically* typed but 
-not *weakly* typed. On the contrary, it's actually a fairly *strongly* typed language, meaning that
-automatic conversions between types are not performed. For example code like this
+instead values carry their own type with them.
 
+Keep in mind that **J\*** is *dynamically* typed but not *weakly* typed. On the contrary, it's
+actually a fairly *strongly* typed language, meaning that automatic conversions between types are
+not performed. For example code like this
 ```jstar
 "2" + 3
 ```
-
 will fail with a type error, instead of converting the string into a number (or viceversa), like 
 some other scripting languages do.
 
@@ -80,11 +80,11 @@ print(Boolean(false))
 print(Boolean(25))
 </pre>
 Every value in **J\*** has an intrisic truth value associated with it. We'll discuss more about this
-in the [control flow](control-flow) section.
+in the [control flow](control-flow#truthiness-and-falsyness) section.
 
 ## Strings
 Strings are immutable sequences of bytes. In **J\*** Strings are 8-bit clean, this means that they 
-can contain arbitrary data, and their encoding is not assumed.
+can contain arbitrary data and their encoding is not assumed.
 
 They are created using string literals, with either single or double quotes:
 ```jstar
@@ -144,4 +144,4 @@ print("formatting {0} {1}" % ("foo", 49))
 ## Null
 
 null is the only instance of the `Null` class. Its defining property is that it's different from any
-other value. It often represents the absence of a useful value.
+other value. It is often used to indicate the absence of a useful value.
