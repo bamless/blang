@@ -69,9 +69,9 @@ if num < 3
 elif num < 10
     print("num is less that ten")
 elif num == 10
-    print("num is `10`")
+    print("num is equal to ten")
 else
-    print("num is greater that `10`")
+    print("num is greater that ten")
 end
 </pre>
 
