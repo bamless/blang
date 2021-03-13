@@ -84,8 +84,8 @@ These names are reserved, and cannot be used as names for variables, classes or 
 
 ## Identifiers
 
-In **J\*** identifiers start with  a letter or an underscore, and can be followed by any number
-of letters, underscores and digits.  
+In **J\*** *identifiers* (also called *names*) start with  a letter or an underscore, and can be 
+followed by any number of letters, underscores and digits.  
 In other words, any name that matches this regex is a valid identifier in **J\***, as long as it's 
 not also one of the reserved keywords:
 ```bash

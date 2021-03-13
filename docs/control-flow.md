@@ -19,7 +19,7 @@ permalink: docs/control-flow
 ---
 
 Control flow structures are statements used to selectively execute code based on certain conditions.
-They usually come in two flavours: *branching* and *looping* constrol flow structures.
+They usually come in two flavours: *branching* and *looping* control flow structures.
 
 ## Truthiness and falsyness
 
@@ -28,20 +28,20 @@ associated with them. This is useful for resolving situations in which types oth
 used as coditions for control flow statements. In some languages - especially statically typed 
 ones - this situation cannot arise, as the compiler will check the type of any condition and fail if 
 it doesn't find a boolean. For a dynamic language like  **J\*** though, it feels unnatural to fail 
-with a runtime error everytime such a situation present itself. So, we follow the approach taken by
+with a runtime error everytime such a situation presents itself. So, we follow the approach taken by
 other scripting language - and notably some statically typed ones, like c or c++ - and partition the
 set of all values in two: those which evaluate to true, and those which evaluate to false. We call
 them truthy and falsy values, respectively.
 
 The choice of wich values should be truthy and wich falsy is somewhat arbitrary and all languages
-have their own. **J\*** follow an approcach similar to the one of Lua: `null` and `false` are
+have their own rules. **J\*** follows an approcach similar to the one of Lua: `null` and `false` are
 falsy, any other value is truthy. This means that values such as `0`, the empty string `""` and
 empty sequences `[]` or `()` all evaluate to true, unlike some other languages.
 
 ## If statement
 
 The if statement is an example of a *branching* control flow structure. It is used to selectively
-chunks of code based on a condition:
+execute chunks of code based on a condition:
 <pre class='runnable-snippet'>
 if 2 < 4
     print("Two is less than four")
@@ -102,6 +102,8 @@ At every iteration, before executing its body, the while statement evaluates its
 it evaluates to true then the body is executed, otherwise the iteration is stopped and statements
 following the while are executed.
 
+While is an example of a *looping* control flow structure.
+
 ## For statement
 
 A for statement is composed by four parts: an *initializer*, a *condition*, an *action* and a 
@@ -118,12 +120,12 @@ following:
     or a statement. In the example above is a *variable declaration* statement that introduces a new
     variable *i* in the scope of the loop.
  2. The *condition* is evaluated. This behaves like the condition of a *while*. If it evaluates to
-    false then the loop is stopped, otherwise proceed to step `3`.
+    `false` then the loop is stopped, otherwise proceed to step `3`.
  3. The body is executed.
  4. The *action* expression is executed.
  5. Repeat this process from step `2`.
 
-This seems a lot of work for just incrementing a variable to ten. Indeed, this kind of loop is a bit
+This seems a lot of work to just increment a variable to ten. Indeed, this kind of loop is a bit
 verbose, but what it loses to its verbosity it gains in flexibility. You can do pretty much all you
 want to by using a for statement.
 
@@ -143,7 +145,7 @@ for var l = linkedList; l != null; l = l.next
 ```
 
 All of the components of a for loop aside from its *body* are optional. If the condition is omitted
-is assumed to aways evaluate to `true`. This can be used to create infinite loops:
+it is assumed to aways evaluate to `true`. This can be used to create infinite loops:
 ```jstar
 for ;;
     print("Infinite")
@@ -196,9 +198,9 @@ Break can be used with all the kinds of loops discussed above.
 
 ## Continue statement
 
-Instead of stopping a loop prematurely, sometimes we just want to be able to skip the current
-iteration and proceed to the next, usually based on some condition. This can be achieved with a
-continue statement:
+Instead of stopping a loop prematurely, sometimes we want to be able to skip the current iteration
+and proceed to the next, usually based on some condition. This can be achieved with a continue
+statement:
 <pre class='runnable-snippet'>
 for var i = 1; i <= 10; i += 1
     if i % 2 != 0 // The number is odd, skip to the next
