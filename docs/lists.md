@@ -47,7 +47,7 @@ print(List(5, |i| => i))
 We will define what is an Iterable object in the [iterable protocol](iterable-protocol) section.
  
 The funny looking `|| =>` syntax is called a 'function literal'. We'll discuss more about it in the 
-[functions and methods](functions-and-methods) section.
+[functions](functions) section.
 
 ## Accessing elements
 

@@ -88,7 +88,7 @@ else                // << `if` block ends `a` is discarded, `else` block starts
 end                 // << `else` block ends, `a` is discarded
 </pre>
 
-And [functions](functions-and-methods):
+And [functions](functions):
 ```jstar
 fun someFunction() // << function scope starts
     var a = 1
@@ -302,7 +302,7 @@ print(single)
 Unpacking variable declarations and assignments can be used to solve common problems in an elegant
 way.
 
-For example returning multiple values from a [function](functions-and-methods):
+For example returning multiple values from a [function](functions):
 <pre class='runnable-snippet'>
 fun multipleReturn()
     return 1, 2, 3 // return a tuple

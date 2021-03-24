@@ -44,8 +44,8 @@ The language has 12 built-in value types:
 *null*, *boolean*, *number*, *string*, *list*, *tuple*, *table*, *userdata*, *handle*,
 *function*, *class* and *module*.
 
-In the following we'll take a brief look at the most basic of them, while the others will be 
-explored during the rest of the documentation.
+In the following we'll take a brief look at the most basic of them: *constant values*, while the
+others will be explored during the rest of the documentation.
 
 ## Numbers
 
