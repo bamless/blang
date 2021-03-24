@@ -283,6 +283,10 @@ foo(1, (2, 3, 4))...
 
 **TODO**
 
+## Returning results
+
+**TODO**
+
 ## Closures and upvalues
 
 **TODO**
