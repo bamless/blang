@@ -53,7 +53,7 @@ In fact, allowing unparenthesized 'nothing' in expressions would cause ambiguite
 grammar.
 
 Note that the comma is an operator like any other, and thus has its own 
-[precedence](syntax#operators-and-precedence). For example, if we want to create a list of tuples we
+[precedence](syntax#operators-precedence). For example, if we want to create a list of tuples we
 must group the tuple elements using parenthesis, because a list literal (`[expression, ...]`) binds 
 more tightly than the comma operator:
 <pre class='runnable-snippet'>

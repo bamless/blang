@@ -92,7 +92,7 @@ not also one of the reserved keywords:
 [_a-zA-Z][_a-zA-Z0-9]*
 ```
 
-## Operators and precedence
+## Operators precedence
 
 **J\*** provides all the usual operators supported by other programming languages and some more
 exotic ones. We will discuss the semantics of all operators and the way they behave on different 
