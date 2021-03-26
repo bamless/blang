@@ -100,8 +100,8 @@ end
 
 In fact, when **J\*** sees a *function definition* statement, it desugars it (in other words, 
 trasforms it) into the form above, making them equivalent. Nontheless, if the only thing you need to
-do is create a function and bind it to a name, you should prefer using a *function declaration*
-statement, as it is more natural to write and less verbose.
+do is create a function and bind it to a name, you should prefer using a *function definition*, as
+it is more natural to write and less verbose.
 
 ## Lambdas
 
@@ -182,7 +182,7 @@ fun foo(a="Default", b)
 end
 </pre>
 
-Valid values for default paramters are: *strings*, *numbers*, *booleans* and *null*; the
+Valid values for default paramters are: *strings*, *numbers*, *booleans* and *null*: the
 *constant values*. If you try to use any other **J\*** value the compiler will scream at you:
 <pre class='runnable-snippet'>
 fun foo(a, b=[1, 2, 3])
@@ -192,8 +192,8 @@ end
 
 ## Variadic functions
 
-For some functions it can be useful to accept an unlimited number of arguments. These are called
-*variadic* functions. In **J\*** a function is variadic if the last parameter is an *ellipsis*
+For some functions it can be useful to accept an unlimited number of arguments. In **J\*** we call
+such functions *variadic functions*. A function is variadic if the last parameter is an *ellipsis*
 (`...` token):
 ```jstar
 fun variadic(a, b, ...)
@@ -228,7 +228,7 @@ variadic()
 </pre>
 
 Variadic functions can still use positional and default parameters, with the usual rules: positional
-first, then default ones, and an ellipsis at the end to make it variadic:
+first, then default ones:
 <pre class='runnable-snippet'>
 // Using all kinds of parameters in a function
 fun all(a, b, c="Default", ...)
@@ -256,7 +256,7 @@ An *unpacking* call is composed by a normal function call followed by an *ellips
 unpacking call is executed, **J\*** will try to unpack the last argument and bind its values to the
 remaining parameters.
 
-If the last argument of the call is not a list or a tuple, an error will be prduced:
+If the last argument of the call is not a list or a tuple, an error will be produced:
 <pre class='runnable-snippet'>
 fun foo(a, b, c)
     print(a, b, c)
@@ -266,7 +266,7 @@ foo("not a tuple")...
 </pre>
 
 Also, if the number of elements in the list or tuple doesn't match the number of parameters that
-haven't been yet specified, an error will be produced as well:
+haven't yet been specified, an error will be produced as well:
 <pre class='runnable-snippet'>
 fun foo(a, b, c)
     print(a, b, c)
@@ -281,12 +281,147 @@ foo(1, (2, 3, 4))...
 
 ## Keyword parameters
 
-**TODO**
+As already enstablished, functions in **J\*** only support positional parameters. Nontheless, it
+would be useful for a function to accept named parameters (i.e. keyword parameters), especially when
+a function has lots of them and remembering their position by heart is difficult. **J\*** supports
+this method of parameter passing by using tables in conjunction with function calls:
+<pre class='runnable-snippet'>
+fun keywordParams(kwargs)
+    if kwargs["foo"]
+        print("Parameter foo is {0}" % kwargs["foo"])
+    else
+        print("No foo parameter specified")
+    end
+end
+
+keywordParams{"foo" : 49}
+</pre>
+
+Note how the function call above uses curly braces instead of normal ones used in regular function
+calls. This is actually syntactic sugar that gets expanded by the compiler into this:
+```jstar
+keywordParams({"foo" : 49})
+```
+i.e. a function call with a single argument that is a table.
+
+The notation using curly braces already makes calls with keyword arguments pretty natural, but using
+strings in the middle of a function call to name its parameters is a bit ugly. Fortunately, we can
+use an alternate syntax for table literals to alleviate this problem:
+<pre class='runnable-snippet'>
+fun keywordParams(kwargs)
+    if kwargs["foo"]
+        print("Parameter foo is {0}" % kwargs["foo"])
+    else
+        print("No foo parameter specified")
+    end
+end
+
+keywordParams{.foo : 49}
+</pre>
+
+When a key of a table literal is composed by a dot followed by an identifier, then that identifier
+is treated as a string. This makes the example above equivalent to the first one, but much more
+pleasant to write and to read. As an additional plus, by using this syntax the named parameters are
+forced to be valid **J\*** identifiers, making them consistent with positional ones.
 
 ## Returning results
 
-**TODO**
+Results can be returned by functions via *return statements*:
+<pre class='runnable-snippet'>
+fun add(a, b)
+    return a + b
+end
+
+print(add(5, 2))
+</pre>
+
+A *return statement* is composed by a `return` keyword followed by an optional expression. When a
+function reaches a return statement, the execution of the function is stopped and control is 
+*returned* to its caller, that will receive the argument of the return as a result.
+
+Just like variables and parameters, functions do not need to specify a type for their return value,
+and as such it is legal to return different types in different execution paths of the same
+function:
+<pre class='runnable-snippet'>
+fun fiveOrErr(n)
+    if n == 5
+        return n
+    else
+        return "`n` must be a five!"
+    end
+end
+
+print(fiveOrErr(5))
+print(fiveOrErr(20))
+</pre>
+
+Also, as mentioned in the beginning of the paragraph, the expression part of a return statement is
+optional. If a bare return is encountered, then its argument will be assumed to be `null`.
+
+Another property to note about functions and return values is that, in **J\***, all functions do
+return one. In fact, if no return statement is encountered during the execution of a function, its
+return value will be `null`:
+<pre class='runnable-snippet'>
+fun noReturn()
+end
+print(noReturn())
+</pre>
+
+This enables the writing of so called 'void' functions (functions that do not return a result),
+without having to type in a return statement at the end of every function.
+
 
 ## Closures and upvalues
 
-**TODO**
+We have already seen how functions can be nested inside one another. This can create some intresting
+situations:
+```jstar
+fun createCounter()
+    var counter = 0
+    return fun()
+        counter += 1
+        return counter
+    end
+end
+```
+
+Here, we can see how the nested function literal accesses the *counter* variable, that is declared
+in its surrounding function. Given **J\*** block scope rules, it is natural to assume that the
+`counter` used inside the inner function will actually referer to the counter variable declared in
+its parent. The strange thing is that, when we actually call `createCounter`, we return a function
+that references a variable of `createCounter` itself, that in the meantime completed execution and
+thus, given the already discussed scoping rules, has a reference to a variable that is no longer in
+scope. How does this work? Aren't variables supposed to be discared when their scope ends? The
+general answer to this is yes but, in the case of functions, the situation is a bit more
+involved.
+
+Functions in **J\*** are actually an implementation of *closures*. A *closure* is a
+function that *closes over* or, in other words, *captures* free variables in surrounding scopes.
+Their working is not dissimilar to that of nested scopes, but applied to functions: if a variable
+is referenced that is not declared in the current function, search for it in any of its parents.
+Differently from scopes though, functions in **J\*** are first-class values. This means that a
+function can actually escape its scope, for example by being returned as a result. This can create
+a situation in which the lifetime of the closure is longer than the lifetime of the variables that
+it references. For this reason, closures mantain references to *captured* variables so that they
+remain alive for as long as the closure that captured them is alive. We call such variables 
+*upvalues*.
+
+As a consequence of this mechanism, closures can mantain a state in the form of upvalues, and as
+such can be used to implement structures similar to objects as showed in the `createCounter`
+example:
+<pre class='runnable-snippet'>
+fun createCounter()
+    var counter = 0
+    return fun()
+        counter += 1
+        return counter
+    end
+end
+
+var count = createCounter()
+print(count())
+print(count())
+print(count())
+</pre>
+
+In fact, we could go as far as to say that [closures are a poor man's objects](http://wiki.c2.com/?ClosuresAndObjectsAreEquivalent).
